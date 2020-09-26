@@ -9,18 +9,21 @@ namespace EmployeeWage
         public const int IS_PART_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
         public const int NO_OF_WORKING_DAYS = 20;
+        public const int MAX_MONTHLY_HOURS = 100;
 
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Employee Wage Computation Problem!");
 
             //Variables
-            int empHours = 0;
-            int empWage = 0;
-            int monthlyWage = 0;
+            int empHours;
+            int totalEmpHours = 0;
+            int empWage;
+            int totalWorkingDays = 0;
 
-            for (int day = 0; day < NO_OF_WORKING_DAYS; day++)
+            while(totalEmpHours<=MAX_MONTHLY_HOURS || totalWorkingDays<NO_OF_WORKING_DAYS)
             {
+                totalWorkingDays++;
                 Random random = new Random();
 
                 //Computation
@@ -31,27 +34,23 @@ namespace EmployeeWage
                 {
                     case IS_FULL_TIME:
                         empHours = 8;
-                        Console.WriteLine("Full Time Employee is Present");
                         break;
 
                     case IS_PART_TIME:
                         empHours = 4;
-                        Console.WriteLine("Part Time Employee is Present");
                         break;
 
                     default:
                         empHours = 0;
-                        Console.WriteLine("Employee is Absent");
                         break;
                 }
 
                 //DailyEmployeeWage
-
-                empWage = empHours * EMP_RATE_PER_HOUR;
-                monthlyWage += empWage;
-                Console.WriteLine("Emp Wage: " + empWage);
+                totalEmpHours += empHours;
+                Console.WriteLine("Days: " + totalWorkingDays+" Emp Hours: "+empHours);
             }
-            Console.WriteLine("Total Monthly Wage: " + monthlyWage);
+            int totalEmpWage = totalEmpHours * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Total Employee Wage: " + totalEmpWage);
         }
     }
 }
