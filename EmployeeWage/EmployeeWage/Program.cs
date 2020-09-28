@@ -11,17 +11,17 @@ namespace EmployeeWage
         public const int NO_OF_WORKING_DAYS = 20;
         public const int MAX_MONTHLY_HOURS = 100;
 
-        static void Main(string[] args)
+
+        public static int computeEmpWage()
         {
             Console.WriteLine("Welcome To Employee Wage Computation Problem!");
 
             //Variables
             int empHours;
             int totalEmpHours = 0;
-            int empWage;
             int totalWorkingDays = 0;
 
-            while(totalEmpHours<=MAX_MONTHLY_HOURS || totalWorkingDays<NO_OF_WORKING_DAYS)
+            while (totalEmpHours <= MAX_MONTHLY_HOURS && totalWorkingDays < NO_OF_WORKING_DAYS)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -47,10 +47,15 @@ namespace EmployeeWage
 
                 //DailyEmployeeWage
                 totalEmpHours += empHours;
-                Console.WriteLine("Days: " + totalWorkingDays+" Emp Hours: "+empHours);
             }
             int totalEmpWage = totalEmpHours * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Days: " + totalWorkingDays + " Total Emp Hours: " + totalEmpHours);
             Console.WriteLine("Total Employee Wage: " + totalEmpWage);
+            return totalEmpWage;
+        }
+        static void Main(string[] args)
+        {
+            computeEmpWage();
         }
     }
 }
