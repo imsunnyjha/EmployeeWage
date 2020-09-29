@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EmployeeWage.Company;
+using EmployeeWage.CompanyInterface;
 
 namespace EmployeeWage.Wage
 {
+    public interface IComputeEmpWage
+    {
+        public void addCompanyEmpWage(string company, int empRatePerHour, int noOfWorkingDays, int maxMonthlyHours);
+        public void computeEmpWage();
+        public int getTotalWage(string company);
+
+    }
     class CompanyWage
     {
         public string company;
@@ -19,6 +26,7 @@ namespace EmployeeWage.Wage
             this.empRatePerHour = empRatePerHour;
             this.noOfWorkingDays = noOfWorkingDays;
             this.maxMonthlyHours = maxMonthlyHours;
+            this.totalEmpWage = 0;
         }
 
         public void setTotalEmpWage(int totalEmpWage)
