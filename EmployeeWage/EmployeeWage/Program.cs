@@ -1,5 +1,6 @@
 ﻿using System;
 using EmployeeWage.Company;
+using EmployeeWage.Wage;
 
 namespace EmployeeWage
 {
@@ -7,12 +8,10 @@ namespace EmployeeWage
     {
         static void Main(string[] args)
         {
-            EmployeeCompany bridgeLabz = new EmployeeCompany("BridgeLabz", 30, 10, 12);
-            EmployeeCompany capgemini = new EmployeeCompany("Capgemini", 50, 15, 15);
-            bridgeLabz.computeEmpWage();
-            Console.WriteLine(bridgeLabz.toString());
-            capgemini.computeEmpWage();
-            Console.WriteLine(capgemini.toString());
+            EmployeeCompany employeeCompany = new EmployeeCompany();
+            employeeCompany.addCompanyEmpWage("BridgeLabz", 30, 10, 12);
+            employeeCompany.addCompanyEmpWage("Capgemini", 50, 15, 15);
+            employeeCompany.computeEmpWage();
         }
     }
 }
